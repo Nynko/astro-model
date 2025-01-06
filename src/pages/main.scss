@@ -1,0 +1,40 @@
+// Set your brand colors
+$purple: #8a4d76;
+$pink: #fa7c91;
+$brown: #757763;
+$beige-light: #d0d1cd;
+$beige-lighter: #eff0eb;
+
+// Override global Sass variables from the /utilities folder
+@use "bulma/sass/utilities" with (
+  $family-primary: '"Nunito", sans-serif',
+  $grey-dark: $brown,
+  $grey-light: $beige-light,
+  $primary: $purple,
+  $link: $pink,
+  $control-border-width: 2px
+);
+
+// Override Sass variables from the /form folder
+@use "bulma/sass/form" with (
+  $input-shadow: none
+);
+
+// Import the components you need
+@use "bulma/sass/base" ;
+@use "bulma/sass/components/card";
+@use "bulma/sass/components/modal";
+@use "bulma/sass/components/navbar";
+@use "bulma/sass/elements/button";
+@use "bulma/sass/elements/icon";
+@use "bulma/sass/elements/content";
+@use "bulma/sass/elements/notification";
+@use "bulma/sass/elements/progress";
+@use "bulma/sass/elements/tag";
+@use "bulma/sass/layout/footer";
+
+// Import the themes so that all CSS variables have a value
+@use "bulma/sass/themes";
+
+// Import the Google Font
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700");

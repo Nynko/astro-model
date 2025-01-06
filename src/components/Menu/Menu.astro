@@ -1,0 +1,24 @@
+---
+import ThemeSwitch from '../Theme/ThemeSwitch.astro'
+---
+
+
+<!-- <button class="button">Test Bulma</button> -->
+<ThemeSwitch />
+<div class="menu">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+</div>
+
+<style>
+    .menu {
+        background-color: #ffffff;
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: repeat(3, 20em);
+        grid-gap: 10px;
+        grid-auto-rows: min(50px, auto);
+        justify-content: right;
+    }
+</style>

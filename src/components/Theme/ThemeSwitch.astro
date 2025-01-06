@@ -1,0 +1,77 @@
+<button class="theme-switch button">
+  <span class="icon-text">
+    <span class="icon">
+      <i class="theme-icon fas fa-sun"></i>
+    </span>
+    <span>Switch Theme</span>
+  </span>
+</button>
+
+<script>
+import { switchTheme, getTheme, getSystemTheme } from "./theme";
+
+  const updateIcons = () => {
+    const icons = document.querySelectorAll('.theme-icon');
+    let theme = getTheme();
+    
+    if (theme == "system"){
+      theme = getSystemTheme();
+    }
+
+    if (icons) {
+      icons.forEach((el) => {
+        if (theme === 'dark') {
+          el.classList.replace('fa-moon','fa-sun');
+        } else {
+          el.classList.replace('fa-sun','fa-moon');
+        }
+      });
+    }
+  }
+  updateIcons();
+
+  const buttons = document.querySelectorAll('.theme-switch');
+
+  if (buttons) {
+    buttons.forEach(
+      (button) => {
+        button.addEventListener('click', () => {
+          switchTheme();
+          updateIcons();
+        });
+      }
+    );
+  }
+</script>
+<!-- 
+<style>
+  :root {
+    --primary-color: #00d1b2;
+    --background-color: #ffffff;
+    --text-color: #363636;
+  }
+
+  [data-theme='dark'] {
+    --primary-color: #ff3860;
+    --background-color: #363636;
+    --text-color: #ffffff;
+  }
+
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+
+  .button {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+  }
+
+  .bd-cycle.js-burger.is-sun::before {
+    content: '🌞';
+  }
+
+  .bd-cycle.js-burger.is-moon::before {
+    content: '🌜';
+  }
+</style> -->
